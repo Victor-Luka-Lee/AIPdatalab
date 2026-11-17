@@ -1,0 +1,8 @@
+.venv/
+.uv-cache/
+.runtime/
+python-runtime.zip
+__pycache__/
+.pytest_cache/
+artifacts/
+*.egg-info/

@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "mode_incidents": {"smoke": 36, "pilot": 120, "experiment": 360},
+  "customers": 24,
+  "decision_delay_seconds": 0.25,
+  "history_window_seconds": 60,
+  "link_window_seconds": 0.05,
+  "target_alert_rate": 0.25,
+  "bootstrap_iterations": 200,
+  "split_fractions": [0.6, 0.2, 0.2],
+  "conditions": {
+    "exact": {"link": "exact", "drop": 0, "delay": 0, "remove_key": false},
+    "missing": {"link": "exact", "drop": 0.3, "delay": 0, "remove_key": false},
+    "delayed": {"link": "exact", "drop": 0, "delay": 5, "remove_key": false},
+    "restricted": {"link": "restricted", "drop": 0, "delay": 0, "remove_key": true}
+  },
+  "rules": {
+    "base": {"identifier_count": 1.0, "email_count": 0.1, "response_bytes": 0.0001},
+    "web": {"history_calls": 0.1, "object_diversity": 0.15, "web_missing": 0.1},
+    "audit": {"accessed_record_count": 0.12, "repeat_access": 0.1, "task_present": -0.4, "audit_missing": 0.1}
+  }
+}

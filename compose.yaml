@@ -1,0 +1,23 @@
+services:
+  lab-api:
+    build: .
+    command: ["serve", "--run-dir", "/lab/artifacts/compose", "--container-listen"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./artifacts:/lab/artifacts
+    networks: [lab-internal]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+  lab-cli:
+    build: .
+    profiles: ["tools"]
+    volumes:
+      - ./artifacts:/lab/artifacts
+    networks: [lab-internal]
+networks:
+  lab-internal:
+    internal: true

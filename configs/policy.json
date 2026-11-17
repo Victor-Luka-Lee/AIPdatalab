@@ -1,0 +1,8 @@
+{
+  "version": "synthetic-v1",
+  "roles": {
+    "user": {"fields": ["name", "email", "phone", "birth_date"], "masked_fields": ["identifier"], "bulk": false},
+    "agent": {"fields": ["name", "email", "phone"], "masked_fields": ["identifier"], "bulk": false},
+    "batch": {"fields": ["name", "email", "phone", "birth_date", "identifier"], "masked_fields": [], "bulk": true}
+  }
+}
